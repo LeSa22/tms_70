@@ -1,0 +1,43 @@
+<li class="list-group-item finished_course">
+  <% if @courses.present? %>
+    <dl class="dl-horizontal">
+      <dt><strong><%= t "show_user.name" %></strong></dt>
+      <dd>
+        <%= link_to @courses.name, "#" %>
+      </dd>
+      <dt><strong><%= t "show_user.description" %></strong></dt>
+      <dd><%= @courses.description %></dd>
+      <dt><strong><%= t "show_user.description" %></strong></dt>
+      <dd><%= t "admin.index.status_1" %></dd>
+      <dt>
+        <strong>
+          <%= t "admin.index.table_start_date" %>
+        </strong>
+      </dt>
+      <dd>
+        <span class="text-muted">
+          <%= l @courses.start_date, fomat: :short %>
+        </span>
+      </dd>
+      <dt>
+        <strong>
+          <%= t "admin.index.table_finish_date" %>
+        </strong>
+      </dt>
+      <dd>
+        <span class="text-muted">
+          <%= l @courses.end_date, fomat: :short %>
+        </span>
+      </dd>
+    </dl>
+  <% else %>
+    <div class="tab-pane" id="finished_courses">
+      <ul class="timelines timeline-inverse">
+        <p class="text text-danger">
+          <%= t "show_user.noti_not_inprogress" %>
+        </p>
+      </ul>
+    </div>
+  <% end %>
+</li>
+<br>

@@ -1,0 +1,76 @@
+<div class="body_wrapper container body-wrapper-content">
+  <div class="row user-profile">
+    <section class="content">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="box box-primary">
+            <div class="box-body box-profile">
+              <%= image_tag @user.avatar, class: "img-circle profile-user-img
+                img-responsive style_image" %>
+              <h3 class="profile-username text-center">
+                <%= @user.name %>
+              </h3>
+              <p class="text-muted text-center">
+                <b><%= t "show_user.email" %></b><%= @user.email %> &nbsp;
+                <%= link_to edit_user_registration_path do %>
+                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                <% end %>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+              <li class="active">
+                <%= link_to t("show_user.inprogress"),
+                  "#inprogress_courses", data: { toggle: "tab"} %>
+              </li>
+              <li class="">
+                <%= link_to t("show_user.finish_courses"),
+                  "#finished_courses", data: { toggle: "tab"} %>
+              </li>
+              <li class="">
+                <%= link_to t("show_user.activities"),
+                  "#activities", data: { toggle: "tab"} %>
+              </li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane" id="activities">
+                <div class="row">
+                  <ul class="media-list">
+                    <li class="media">
+                      <div class="media-left">
+                        <%= image_tag @user.avatar,
+                          class: "profile-user-img img-responsive
+                          img-circle style_image_active" %>
+                      </div>
+                      <div class="media-body">
+                        <div>
+                          <%= link_to @user.name, user_path %>
+                        </div>
+                        <small class="text-muted">
+                          <%= t "admin.header.date" %>
+                        </small>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="tab-pane" id="finished_courses">
+                <ul class="timelines timeline-inverse">
+                  <p class="text text-danger">
+                    <%= t "show_user.noti_not_finish" %>
+                  </p>
+                </ul>
+              </div>
+              <div class="active tab-pane" id="inprogress_courses">
+                <%= render "users/course"%>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

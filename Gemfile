@@ -23,6 +23,7 @@ gem "devise"
 gem "kaminari"
 gem "ransack"
 gem "bootstrap-kaminari-views"
+gem "jquery-datatables-rails"
 gem "cancancan"
 group :development, :test do
   gem "byebug", platform: :mri

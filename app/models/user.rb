@@ -8,7 +8,7 @@ class User < ApplicationRecord
   enum role: {trainee: 0, supervisor: 1, admin: 2}
 
   validates :name, presence: true
-
+  mount_uploader :avatar, PictureUploader
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
 

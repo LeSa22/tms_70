@@ -4,6 +4,8 @@ class UserCourse < ApplicationRecord
 
   has_many :user_subjects
   has_many :subjects, through: :user_subjects
-
-  enum status: {pending: 0, started: 1, finished: 2}
+  enum status: {pending: 0, progress: 1, finished: 2}
+  scope :inprogress, -> do
+    find_by status: UserCourse.statuses[:progress]
+  end
 end
